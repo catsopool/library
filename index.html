@@ -17,12 +17,18 @@
     <body>
         <header>
             <div class="change_mode">
-                <input type="button" value="night" onclick="
-                document.querySelector('body').style.backgroundColor='#333333';
-                document.querySelector('body').style.color='#f0f0f0';">
-                <input type="button" value="day" onclick="
-                document.querySelector('body').style.backgroundColor='#ffffff';
-                document.querySelector('body').style.color='#000000';">
+                <input id="day_night" type="button" value="day" onclick="
+                    if(document.querySelector('#day_night').value === 'day'){
+                        document.querySelector('#day_night').value='night'
+                        document.querySelector('body').style.backgroundColor='#ffffff'
+                        document.querySelector('body').style.color='#000000'
+                    }
+                    else{
+                        document.querySelector('#day_night').value='day'
+                        document.querySelector('body').style.backgroundColor='#333333'
+                        document.querySelector('body').style.color='#f0f0f0'
+                    }
+                ">
             </div>
             <div>
                 <h1>
