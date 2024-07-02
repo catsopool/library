@@ -1,13 +1,37 @@
-.menu{
-    text-align: center;
-}
+
 .html, .css, .javascript{
     text-align: center;
 }
 body{
     background-color: #333333;
     color: #f0f0f0;
-}
+}       
 h1{
     text-align: center;
+    font-size: 50px;
+    border-bottom: 1px solid #f0f0f0;
+}
+a {
+    text-decoration: none;
+}
+a:link{
+    color: rgb(51, 151, 65);
+}
+a:visited{
+    color: coral;
+}
+a:hover{
+    text-decoration: underline red;
+}
+.coding_menu{
+    display: block;
+}
+#menu{
+    border: 5px solid greenyellow;
+}
+.coding:hover{
+    .coding_menu{
+        display: flex;
+        flex-direction: column;
+    }
 }
