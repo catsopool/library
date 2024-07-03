@@ -10,25 +10,45 @@
         gtag('config', 'G-DZFEFYXLRS');
         </script>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>잡동사니 도서관</title>
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <header>
             <div class="change_mode">
-                <input id="day_night" type="button" value="day" onclick="
-                    if(document.querySelector('#day_night').value === 'day'){
-                        document.querySelector('#day_night').value='night'
-                        document.querySelector('body').style.backgroundColor='#ffffff'
-                        document.querySelector('body').style.color='#000000'
+                <!--
+                리팩토링 = 중복의 제거
+
+                id 부분은 무수히 많은 곳에 사용하기에는 무리가 있기 떄문에,
+                id는 한 곳에만 사용되기 때문에.
+                그리고 이 부분을 다른 것으로 대체할 수 있기에 대체한다.
+                if(document.querySelector('#day_night').value === 'day')이 부분을
+                if(this.value === 'day') 이렇게 대체 가능하다.
+                자기 자신을 가리키는 속성이기 때문
+
+                document.querySelector('body')이 부분도 중복되고 있음.
+                var target = document.querySelector('body');
+                이 명령문을 추가하게 되면 document.querySelector('body') 대신 target을 적용 가능
+                코드가 간결해짐
+                -->
+                <input type="button" value="day" onclick="
+                    var target = document.querySelector('body');
+                    if(this.value === 'day'){
+                        this.value='night';
+                        target.style.backgroundColor='#ffffff';
+                        target.style.color='#000000';
                     }
                     else{
-                        document.querySelector('#day_night').value='day'
-                        document.querySelector('body').style.backgroundColor='#333333'
-                        document.querySelector('body').style.color='#f0f0f0'
+                        this.value='day';
+                        target.style.backgroundColor='#333333';
+                        target.style.color='#f0f0f0';
                     }
                 ">
+                <!--
+                if문 ===>  if(x=y){x=y라면 이렇게 동작해라}else{x=y가 아니라면 이렇게 동작해라}
+                        이렇기 때문에 else문에 조건을 적지 않음.(불필요한 부가 설명임.)
+                -->
             </div>
             <div>
                 <h1>
@@ -38,15 +58,25 @@
             </div>
         </header>
         <nav>
-            <div id="menu"><!--메뉴?-->
+            <div id="menu"><!--메뉴?
+                메뉴를 가로로 배치 해야 할지 세로로 배치해야 할지 고민중.
+                이건 나중에 생각해도 되지 않을까?-->
                 <span class="coding"><a href="">Coding</a></span>
                 <span class="game"><a href="">game</a></span>
             </div>
             <div>
-                <span class="coding_menu">    
-                    <span class="html"><a href="html.html">HTML</a></span>
-                    <span class="css"><a href="css.html">CSS</a></span>
-                    <span class="javascript"><a href="javascript.html">JavaScript</a></span>
+                <span class="coding_menu">
+                    <script>
+                        var codings = ['html','css','javascript'];
+                    </script>
+                    
+                    <script>
+                        var i = 0;
+                        while(i < codings.length){
+                            document.write('<span><a href="https://catsopool.github.io/library/'+codings[i]+'">'+codings[i]+'</a></span>');
+                            i = i + 1;
+                        }
+                    </script>
                 </span>
             </div>
         </nav>
