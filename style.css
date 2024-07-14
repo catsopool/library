@@ -19,14 +19,31 @@ a:visited{
 a:hover{
     text-decoration: underline red;
 }
-.coding_menu{
-    display: none;
-}
 #menu{
+    display: flex;
+    flex-direction: row;
     border: 5px solid greenyellow;
+    height: 100px;
+    /*display: flex;
+    gap: 10px;  /*메뉴 사이의 간격*/
+    /*position: relative; /*포지셔닝 기준??*/
 }
-.coding:hover .coding_menu {
-        display: flex;
-        flex-direction: column;
-    
+.coding{
+    border: 5px solid blue;
+}
+.game{
+    border: 5px solid skyblue;
+}
+.coding_menu{
+    display: flex;
+    flex-direction: column;
+    /*display: none;      /*기본적으로 숨기기(왜 block을 하면 안될까?)*/
+    /*position: absolute; /*절대 위치*/
+    /*top: 100%;  /*부모의 아래쪽에 위치*/
+    /*left: 0%;
+    width: 100%;    /*전체 너비*/
+    /*background-color: #333333;  /*배경색*/
+}
+article{
+    border: 5px solid yellow;
 }
